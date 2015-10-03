@@ -1,0 +1,27 @@
+{
+  "name": "react-native-awesome-button",
+  "version": "1.0.0",
+  "description": "A button React Native component supporting showing different states with animations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larsvinter/react-native-awesome-button.git"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "react-component",
+    "react-native-button",
+    "react-native-awesome-button",
+    "react-ui"
+  ],
+  "author": "Lars Vinter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/larsvinter/react-native-awesome-button/issues"
+  },
+  "homepage": "https://github.com/larsvinter/react-native-awesome-button#readme"
+}
