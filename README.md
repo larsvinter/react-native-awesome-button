@@ -63,7 +63,7 @@ var styles = StyleSheet.create({
 
 In this example, a simple button with only one appearance and function will be rendered. This would produce something like this:
 
-![Example code result](https://raw.githubusercontent.com/brentvatne/react-native-overlay/master/example.png)
+![Example code result](https://raw.githubusercontent.com/larsvinter/react-native-awesome-button/master/Simple%20Example.png)
 
 #### Advanced Example
 
@@ -146,7 +146,7 @@ AppRegistry.registerComponent('ComponentTester', () => ComponentTester);
 ```
 This would produce something like this:
 
-![Example code result](https://raw.githubusercontent.com/larsvinter/react-native-awesome-button/master/Advanced%20Example%20-%20Before%20Touch.png)
+![Example code result](https://raw.githubusercontent.com/larsvinter/react-native-awesome-button/master/Advanced%20Example%20-%20Before%20Touch.png)(https://raw.githubusercontent.com/larsvinter/react-native-awesome-button/master/Advanced%20Example%20-%20Advanced%20Touch.png)
 
 
 ### Component properties
