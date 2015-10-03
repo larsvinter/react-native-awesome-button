@@ -1,13 +1,13 @@
 ### React Native Awesome Button
-An `<AwesomeButton />` component that creates a button depict different states in terms of e.g. color and label text. When a new buttonState is passed to the component the button will animate transition to the new appearance specified upon initiation. You can also pass in different functions to be called on touch depending of the current state of the button.
+An `<AwesomeButton />` component that creates a button depicting different states in terms of e.g. color and label text. When a new buttonState is passed to the component the button will animate transition to the new appearance specified upon initiation. You can also pass in different functions to be called on touch depending of the current state of the button.
 
 <img src='http://oi62.tinypic.com/8x4u94.jpg' />
 
 ### Content
 - [Installation](#installation)
-- [Usage example](#usage-example)
-  - [Simple example](#simple-example)
-  - [Advanced example](#advanced-example)
+- [Usage Example](#usage-example)
+  - [Simple Example](#simple-example)
+  - [Advanced Example](#advanced-example)
 - [Component properties](#component-properties)
 
 ### Installation
@@ -34,20 +34,18 @@ var Menu = React.createClass({
   },
 
   render: function() {
-
     var buttonStates = {
       default: {
         text: 'Click Me',
         onClick: this.buttonClick,
         backgroundStyle: {
-          backgroundColor: '#CC0033'
+          backgroundColor: '#326173'
         },
         labelStyle: {
           color: '#FFFFFF'
         }
       }
     }
-
     return (
       <AwesomeButton style={styles.myButton} 
                      states={buttonStates}
@@ -69,9 +67,9 @@ In this example, a simple button with only one appearance and function will be r
 
 ![Example code result](https://raw.githubusercontent.com/brentvatne/react-native-overlay/master/example.png)
 
-#### Advanced Example - Animated Login Button
+#### Advanced Example
 
-This shows how you might implement a button that transitions to a new state upon user click. Notice that you create an object that specifies the different states and then pass the prop buttonState to the button, when you want it to transition.
+This shows how you might implement an "animated login" button that transitions to a new state upon user click. Notice that you create an object that specifies the different states and then pass the prop buttonState to the button, when you want it to transition.
 
 ```javascript
 var React = require('react-native');
@@ -98,7 +96,6 @@ var ComponentTester = React.createClass({
   },
 
   render: function() {
-
     var buttonStates = {
       idle: {
         touchable: true,
@@ -123,7 +120,6 @@ var ComponentTester = React.createClass({
         }
       }
     };
-
     return (
       <View style={styles.container}>
         <AwesomeButton style={styles.myButton} 
@@ -156,7 +152,7 @@ This would produce something like this:
 
 
 ### Component properties
-- `states` (Object) - object of all possible states and parameters for each state. The following parameters can be used:
+- `states` (Object) - object of all possible states and parameters for each state. Each state has a nested object. The key used will be the name for that specific state. The following parameters can be used inside each sub-object:
   - `touchable` (Bool) - indicates if the button will receive touch event in this state
   - `onClick` (Function) - the function to call when button is clicked in this state
   - `spinner` (Bool) - if true then the button will show a spinner in this state
