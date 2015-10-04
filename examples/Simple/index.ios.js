@@ -22,16 +22,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   myButton: {
+    flex: 1,
     height: 50,
     width: 300,
-    borderRadius: 10
+    borderRadius: 8
   },
   myButtonDefaultBackground: {
-    backgroundColor: '#555532'
+    backgroundColor: '#477CCC'
   },
   myButtonDefaultLabel: {
-    color: '#004433',
-    fontSize: 20
+    color: '#DDDDDD',
+    fontSize: 18
   }
 })
 
@@ -50,12 +51,12 @@ class Simple extends Component {
                         default: {
                           text: 'Press me',
                           touchable: true,
+                          onPress: this.handleButtonPress,
                           backgroundStyle: styles.myButtonDefaultBackground,
                           labelStyle: styles.myButtonDefaultLabel
                         }
                        }}
-                       buttonState="default"
-                       onPress={this.handleButtonPress} />
+                       buttonState="default" />
       </View>
     )
   }

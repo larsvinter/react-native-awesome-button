@@ -10,7 +10,7 @@ An `<AwesomeButton />` component that creates a button depicting different state
 
 ### Installation
 1. `npm install react-native-awesome-button --save`
-2. Whenever you want to use it within React Native code now you can: `var AwesomeButton = require('react-native-awesome-button');`
+2. Whenever you want to use it within React Native code now you can: `const AwesomeButton = require('react-native-awesome-button')`
 
 ### Usage Example
 
@@ -18,151 +18,98 @@ An `<AwesomeButton />` component that creates a button depicting different state
 
 To use `<AwesomeButton>`, you need to require `react-native-awesome-button` to your module and insert `<AwesomeButton>` tag inside render function with the required properties as it's done below:
 ```javascript
-var React = require('react-native');
-var AwesomeButton = require('react-native-awesome-button');
+const React = require('react-native')
+const AwesomeButton = require('react-native-awesome-button')
 
-var {
+
+const {
+  AppRegistry,
+  Component,
+  View,
   StyleSheet
-} = React;
+} = React
 
-var Menu = React.createClass({
 
-  buttonClick: function() {
-    console.log('I was clicked!');
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
-
-  render: function() {
-    var buttonStates = {
-      default: {
-        text: 'Click Me',
-        onClick: this.buttonClick,
-        backgroundStyle: {
-          backgroundColor: '#326173'
-        },
-        labelStyle: {
-          color: '#FFFFFF'
-        }
-      }
-    }
-    return (
-      <AwesomeButton style={styles.myButton} 
-                     states={buttonStates}
-                     buttonState="default" />
-    );
-  }
-});
-
-var styles = StyleSheet.create({
   myButton: {
+    flex: 1,
+    height: 50,
     width: 300,
-    height: 100,
-    borderRadius: 10
+    borderRadius: 8
+  },
+  myButtonDefaultBackground: {
+    backgroundColor: '#477CCC'
+  },
+  myButtonDefaultLabel: {
+    color: '#DDDDDD',
+    fontSize: 18
   }
-});
+})
+
+
+class Simple extends Component {
+  
+  handleButtonPress() {
+    console.log('I was pressed')
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <AwesomeButton style={styles.myButton}
+                       states={{
+                        default: {
+                          text: 'Press me',
+                          touchable: true,
+                          onPress: this.handleButtonPress,
+                          backgroundStyle: styles.myButtonDefaultBackground,
+                          labelStyle: styles.myButtonDefaultLabel
+                        }
+                       }}
+                       buttonState="default" />
+      </View>
+    )
+  }
+
+}
+
+
+AppRegistry.registerComponent('Simple', () => Simple)
 ```
 
-In this example, a simple button with only one appearance and function will be rendered. This would produce something like this:
+In this example, a simple button with only one appearance and onPress-function will be rendered. This would produce something like this:
 
-![Example code result](https://raw.githubusercontent.com/larsvinter/react-native-awesome-button/master/Simple%20Example.png)
+![Example code result](https://raw.githubusercontent.com/larsvinter/react-native-awesome-button/docs/Simple%20Example.png)
+
+To run this example yourself, you need to do the following:
+
+1. Clone the full source code from github: `git clone git@github.com:larsvinter/react-native-awesome-button.git`
+2. Change to the proper directory of the simple example: `cd react-native-awesome-button/examples/Simple`
+3. Install dependecies: `npm install`
+4. Open the project in Xcode and hit 'run' (the project is inside 'ios' folder) (remember to restart the packager)
 
 #### Advanced Example
 
 This shows how you might implement an "animated login" button that transitions to a new state upon user click. Notice that you create an object that specifies the different states and then pass the prop buttonState to the button, when you want it to transition.
 
-```javascript
-var React = require('react-native');
-
-var AwesomeButton = require('./react-native-awesome-button')
-
-var {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-} = React;
-
-var ComponentTester = React.createClass({
-
-  getInitialState: function() {
-    return ({
-      buttonState: 'idle'
-    })
-  },
-
-  logIn: function() {
-    this.setState({ buttonState: 'busy' })
-  },
-
-  render: function() {
-    var buttonStates = {
-      idle: {
-        touchable: true,
-        onClick: this.logIn,
-        text: 'Log In',
-        backgroundStyle: {
-          backgroundColor: '#326173'
-        },
-        labelStyle: {
-          color: '#DDDDDD',
-        },
-      },
-      busy: {
-        spinner: true,          
-        text: 'Logging In',
-        onClick: this.logIn,
-        backgroundStyle: {
-          backgroundColor: '#CC0033',
-        },
-        labelStyle: {
-          color: '#FFFFFF',
-        }
-      }
-    };
-    return (
-      <View style={styles.container}>
-        <AwesomeButton style={styles.myButton} 
-                       states={buttonStates}
-                       buttonState={this.state.buttonState} />
-      </View>
-    );
-  }
-});
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  myButton: {
-    width: 300,
-    height: 100,
-    borderRadius: 10
-  },
-});
-
-AppRegistry.registerComponent('ComponentTester', () => ComponentTester);
-```
-This would produce something like this:
-
-![Example code result](https://raw.githubusercontent.com/larsvinter/react-native-awesome-button/master/Advanced%20Example%20-%20Before%20Touch.png)
-![Example code result](https://raw.githubusercontent.com/larsvinter/react-native-awesome-button/master/Advanced%20Example%20-%20After%20Touch.png)
+Coming soon.
 
 
 ### Component properties
 - `states` (Object) - object of all possible states and parameters for each state. Each state has a nested object. The key used will be the name for that specific state. The following parameters can be used inside each sub-object:
   - `touchable` (Bool) - indicates if the button will receive touch event in this state
-  - `onClick` (Function) - the function to call when button is clicked in this state
+  - `onPress` (Function) - the function to call when button is clicked in this state
   - `spinner` (Bool) - if true then the button will show a spinner in this state
   - `text` (String) - the label of the button in this state
-  - `backgroundStyle` (Object) - a style object for the button background (with same style properties as for a <View> component)
-  - `labelStyle` (Object) - a style object for the label (with same style properties as for a <Text> component)
+  - `backgroundStyle` (Object) - a style object for the button background (with same style properties as for a `<View>` component)
+  - `labelStyle` (Object) - a style object for the label (with same style properties as for a `<Text>` component)
 
 - `buttonState` (String) - tells the button which is the current state
-  - `xlight` - extra light blur type
-  - `light` - light blur type
-  - `dark` - dark blur type
 
-- `style` (Object) - gives the style properties for the button (e.g. for size etc.) (with same style properties as for a <View> component)
+- `style` (Object) - gives the style properties for the button (e.g. for size etc.) (with same style properties as for a `<View>` component)
 
