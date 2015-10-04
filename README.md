@@ -101,15 +101,18 @@ Coming soon.
 
 
 ### Component properties
-- `states` (Object) - object of all possible states and parameters for each state. Each state has a nested object. The key used will be the name for that specific state. The following parameters can be used inside each sub-object:
+
+| Prop | Type | Description |
+|---|---|---|
+|**`states`**|`object`|Includes a nested object for each possible state and the parameters for this state. The key used for the nested object will be the name for that specific state.|
+|**`buttonState`**|`string`|The key to tell the button what apparance and functionality to take on. Changing this will trigger an animation to the new state given|
+|**`style`**|`styles object`|A standard style object for the button (with same style properties as for a `<View>` component. Possible to reference a StyleSheet object|
+
+
+- Each state in the states object can have one or more of the following properties:
   - `touchable` (Bool) - indicates if the button will receive touch event in this state
   - `onPress` (Function) - the function to call when button is clicked in this state
   - `spinner` (Bool) - if true then the button will show a spinner in this state
   - `text` (String) - the label of the button in this state
-  - `backgroundStyle` (Object) - a style object for the button background (with same style properties as for a `<View>` component)
-  - `labelStyle` (Object) - a style object for the label (with same style properties as for a `<Text>` component)
-
-- `buttonState` (String) - tells the button which is the current state
-
-- `style` (Object) - gives the style properties for the button (e.g. for size etc.) (with same style properties as for a `<View>` component)
-
+  - `backgroundStyle` (Object) - a style object for the button background (with same style properties as for a `<View>` component in this state)
+  - `labelStyle` (Object) - a style object for the label (with same style properties as for a `<Text>` component in this state)
