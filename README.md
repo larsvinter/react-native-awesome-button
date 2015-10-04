@@ -129,5 +129,6 @@ Each state in the states object should have a unique key. For each of these keys
  - Fix issues with using flex-box for styling
  - Improve transition animation (i.e. instead of fading between colors, do a proper interpolated transition from one color to the other and then only fade the label text)
  - Add Android compatibility
+ 
 
  If you would like to refactor, please create a separate branch, make your changes, commit, push and submit a pull-request
