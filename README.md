@@ -105,14 +105,18 @@ Coming soon.
 | Prop | Type | Description |
 |---|---|---|
 |**`states`**|`object`|Includes a nested object for each possible state and the parameters for this state. The key used for the nested object will be the name for that specific state.|
-|**`buttonState`**|`string`|The key to tell the button what apparance and functionality to take on. Changing this will trigger an animation to the new state given|
+|**`buttonState`**|`string`|The key used to tell the button what apparance and functionality to take on. Changing this will trigger an animation to the new state given|
 |**`style`**|`styles object`|A standard style object for the button (with same style properties as for a `<View>` component. Possible to reference a StyleSheet object|
 
+#### Keys in the `states` object
 
-- Each state in the states object can have one or more of the following properties:
-  - `touchable` (Bool) - indicates if the button will receive touch event in this state
-  - `onPress` (Function) - the function to call when button is clicked in this state
-  - `spinner` (Bool) - if true then the button will show a spinner in this state
-  - `text` (String) - the label of the button in this state
-  - `backgroundStyle` (Object) - a style object for the button background (with same style properties as for a `<View>` component in this state)
-  - `labelStyle` (Object) - a style object for the label (with same style properties as for a `<Text>` component in this state)
+Each state in the states object can have one or more of the following properties:
+
+| Key | Type | Description |
+|---|---|---|
+|**`touchable`**|`bool`|If true the button will accept press events and dim the color while being pressed in this state. The function given to the `onPress` key will be fired.|
+|**`onPress`**|`function`|The function fired when the button is pressed (only if `touchable` is set to true) in this state|
+|**`spinner`**|`bool`|If true the button will show a spinner on the left hand side of the label in this state|
+|**`text`**|`string`|The label of the button in this state|
+|**`backgroundStyle`**|`styles object`|A style object for the button background (with same style properties as for a `<View>` component in this state)|
+|**`labelStyle`**|`styles object`|A style object for the label (with same style properties as for a `<Text>` component in this state)|
