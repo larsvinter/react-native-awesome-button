@@ -86,7 +86,7 @@ AppRegistry.registerComponent('Simple', () => Simple)
 
 In this example, a simple button with only one appearance and onPress-function will be rendered. This would produce something like this:
 
-![Example code result](https://raw.githubusercontent.com/larsvinter/react-native-awesome-button/docs/Simple%20Example.png)
+![Example code result](https://raw.githubusercontent.com/larsvinter/react-native-awesome-button/master/docs/simple.png)
 
 To run this example yourself, you need to do the following:
 
