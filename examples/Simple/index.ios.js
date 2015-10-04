@@ -1,53 +1,66 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
+ * Sample React Native App showing use of AwesomeButton
  */
-'use strict';
 
-var React = require('react-native');
-var {
+
+const React = require('react-native')
+const AwesomeButton = require('react-native-awesome-button')
+
+
+const {
   AppRegistry,
-  StyleSheet,
-  Text,
+  Component,
   View,
-} = React;
+  StyleSheet
+} = React
 
-var Simple = React.createClass({
-  render: function() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
-  }
-});
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: 'center'
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  myButton: {
+    height: 50,
+    width: 300,
+    borderRadius: 10
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  myButtonDefaultBackground: {
+    backgroundColor: '#555532'
   },
-});
+  myButtonDefaultLabel: {
+    color: '#004433',
+    fontSize: 20
+  }
+})
 
-AppRegistry.registerComponent('Simple', () => Simple);
+
+class Simple extends Component {
+  
+  handleButtonPress() {
+    console.log('I was pressed')
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <AwesomeButton style={styles.myButton}
+                       states={{
+                        default: {
+                          text: 'Press me',
+                          touchable: true,
+                          backgroundStyle: styles.myButtonDefaultBackground,
+                          labelStyle: styles.myButtonDefaultLabel
+                        }
+                       }}
+                       buttonState="default"
+                       onPress={this.handleButtonPress} />
+      </View>
+    )
+  }
+
+}
+
+
+AppRegistry.registerComponent('Simple', () => Simple)
