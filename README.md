@@ -108,9 +108,9 @@ Coming soon.
 |**`buttonState`**|`string`|The key used to tell the button what apparance and functionality to take on. Changing this will trigger an animation to the new state given|
 |**`style`**|`styles object`|A standard style object for the button (with same style properties as for a `<View>` component. Possible to reference a StyleSheet object|
 
-#### Keys in the `states` object
+#### Keys in the `states` objects
 
-Each state in the states object can have one or more of the following properties:
+Each state in the states object should have a unique key. For each of these keys you need to specify the parameters for the button when it is in that specific state. A buttonstate can have one or more of the following parameters:
 
 | Key | Type | Description |
 |---|---|---|
