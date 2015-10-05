@@ -18,21 +18,10 @@ const {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'row',
+    margin: 20,
     alignItems: 'center',
     justifyContent: 'center'
-  },
-  myButton: {
-    flex: 1,
-    height: 50,
-    width: 300,
-    borderRadius: 8
-  },
-  myButtonDefaultBackground: {
-    backgroundColor: '#477CCC'
-  },
-  myButtonDefaultLabel: {
-    color: '#DDDDDD',
-    fontSize: 18
   }
 })
 
@@ -46,17 +35,12 @@ class Simple extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <AwesomeButton style={styles.myButton}
-                       states={{
+        <AwesomeButton states={{
                         default: {
                           text: 'Press me',
-                          touchable: true,
-                          onPress: this.handleButtonPress,
-                          backgroundStyle: styles.myButtonDefaultBackground,
-                          labelStyle: styles.myButtonDefaultLabel
+                          onPress: this.handleButtonPress
                         }
-                       }}
-                       buttonState="default" />
+                       }} />
       </View>
     )
   }
