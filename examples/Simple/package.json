@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "react-native": "^0.11.4",
-    "react-native-awesome-button": "^1.2.0"
+    "react-native-awesome-button": "^1.2.1"
   }
 }
