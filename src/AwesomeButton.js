@@ -17,7 +17,7 @@ class InnerButtonView extends Component {
   render() {
     return(
       <View style={styles.insideView}>
-        { this.props.currentStateObject.spinner ? <ActivityIndicatorIOS color={ this.props.labelStyle.color } style={styles.activityIndicator}/> : null }
+        { this.props.currentStateObject.spinner ? <ActivityIndicatorIOS color={ this.props.spinnerColor } style={styles.activityIndicator}/> : null }
         <Text style={ this.props.labelStyle }>{ this.props.currentStateObject.text }</Text>
       </View>
     )
@@ -26,7 +26,44 @@ class InnerButtonView extends Component {
 }
 
 
-class ButtonView extends Component {
+class AwesomeButton extends Component {
+
+  constructor(props: any) {
+    super(props);
+    const currentStateObject = this.props.states[this.props.buttonState] || this.getDefaultStateObject()
+    this.state = {
+      backgroundColor: new Animated.Value(0),
+      startColor: this.hexToRgb(currentStateObject.backgroundColor), 
+      endColor: this.hexToRgb(currentStateObject.backgroundColor) 
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const currentStateObject = this.props.states[this.props.buttonState] || this.getDefaultStateObject()
+    const nextStateObject = nextProps.states[nextProps.buttonState] || this.getDefaultStateObject()
+    this.setState({ backgroundColor: new Animated.Value(0), startColor: this.hexToRgb(currentStateObject.backgroundColor), endColor: this.hexToRgb(nextStateObject.backgroundColor) })
+  }
+
+  componentDidUpdate() {
+    this.startAnimation()
+  }
+
+  hexToRgb(hex) {
+    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
+    });
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ?  'rgb(' + parseInt(result[1], 16) + ', ' + parseInt(result[2], 16) + ', ' + parseInt(result[3], 16) + ')' : null
+  }  
+
+  startAnimation() {
+    Animated.timing(this.state.backgroundColor,
+    {
+      toValue: 1,
+      duration: this.props.transitionDuration || 250
+    }).start()
+  }
 
   getDefaultBackgroundStyle() {
     return (
@@ -42,14 +79,20 @@ class ButtonView extends Component {
   getDefaultLabelStyle() {
     return (
       {
-        color: '#000000'
+        color: '#FFFFFF'
       }
     )
   }
 
-  getDefaultCurrentStateObject() {
+  getDefaultStateObject() {
     return (
       this.props.states[Object.keys(this.props.states)[0]]
+    )
+  }
+
+  getDefaultSpinnerColor() {
+    return (
+      '#FFFFFF'
     )
   }
 
@@ -60,68 +103,36 @@ class ButtonView extends Component {
     const backgroundStyle = this.props.backgroundStyle || this.getDefaultBackgroundStyle()
     const labelStyle = this.props.labelStyle || this.getDefaultLabelStyle()
     const currentStateObject = this.props.states[this.props.buttonState] || this.getDefaultCurrentStateObject()
+    const spinnerColor = currentStateObject.spinnerColor || this.getDefaultSpinnerColor()
 
+    const bgColor = this.state.backgroundColor.interpolate({
+      inputRange: [
+        0,
+        1,
+      ],
+      outputRange: [
+        this.state.startColor,
+        this.state.endColor
+      ],
+    })
 
     if (currentStateObject.onPress) {
       return (
         <TouchableOpacity style={ backgroundStyle }
                           activeOpacity={0.92}
                           onPress={currentStateObject.onPress}>
-          <View style={[ backgroundStyle, { backgroundColor: currentStateObject.backgroundColor } ]}>
-            <InnerButtonView currentStateObject={currentStateObject} labelStyle={ labelStyle } />
-          </View>
+          <Animated.View style={[ backgroundStyle, { backgroundColor: bgColor  } ]}>
+            <InnerButtonView currentStateObject={currentStateObject} labelStyle={ labelStyle } spinnerColor={ spinnerColor } />
+          </Animated.View>
         </TouchableOpacity> 
       )
     } else {
       return (
-      <View style={ backgroundStyle }>
-        <InnerButtonView currentStateObject={currentStateObject} labelStyle={ labelStyle }/>
-      </View>
+        <Animated.View style={[ backgroundStyle, { backgroundColor: bgColor } ]}>
+          <InnerButtonView currentStateObject={currentStateObject} labelStyle={ labelStyle } spinnerColor={ spinnerColor } />
+        </Animated.View>
       )
     }
-  }
-
-}
-
-
-const AnimatedButton = Animated.createAnimatedComponent(ButtonView)
-
-
-class AwesomeButton extends Component {
-
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      opacityValue: new Animated.Value(0),
-      view1: this.props.buttonState
-    }
-  }
-
-  getDefaultTransitionDuration() {
-    return 300
-  }
-
-  startAnimation() {
-    Animated.timing(this.state.opacityValue,
-    {
-      toValue: 1,
-      duration: this.props.transitionDuration || getDefaultTransitionDuration(),
-      delay: 50
-    }).start()
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({ view1: this.props.buttonState, view2: nextProps.buttonState })
-    this.startAnimation()
-  }
-
-  render() {
-    return (
-      <View style={ styles.container }>
-        <ButtonView {...this.props} buttonState={this.state.view1}/>
-        { this.state.view2 ? <AnimatedButton {...this.props} buttonState={this.state.view2} style={{ position: 'absolute', top: 0, left: 0, opacity: this.state.opacityValue }}/> : null }
-      </View>
-    )
   }
 
 }

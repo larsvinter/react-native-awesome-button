@@ -38,7 +38,7 @@ class Simple extends Component {
         <AwesomeButton states={{
                         default: {
                           text: 'Press me',
-                          onPress: this.handleButtonPress
+                          onPress: this.handleButtonPress,
                         }
                        }} />
       </View>
