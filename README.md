@@ -206,8 +206,7 @@ Each state in the states object should have a unique key. For each of these keys
 
 
 ### Roadmap
- - Add advanced example
- - Improve transition animation (i.e. instead of fading between colors, do a proper interpolated transition from one color to the other and then only fade the label text)
+ - Improve transition animation (i.e. cross-fade the text label)
  - Add Android compatibility
 
 
