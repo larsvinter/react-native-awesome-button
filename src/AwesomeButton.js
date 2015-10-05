@@ -28,7 +28,7 @@ class InnerButtonView extends Component {
 
 class AwesomeButton extends Component {
 
-  constructor(props: any) {
+  constructor(props) {
     super(props);
     const currentStateObject = this.props.states[this.props.buttonState] || this.getDefaultStateObject()
     this.state = {
@@ -65,45 +65,17 @@ class AwesomeButton extends Component {
     }).start()
   }
 
-  getDefaultBackgroundStyle() {
-    return (
-      {
-        flex: 1,
-        height: 40,
-        backgroundColor: '#477CCC',
-        borderRadius: 20
-      }
-    )
-  }
-
-  getDefaultLabelStyle() {
-    return (
-      {
-        color: '#FFFFFF'
-      }
-    )
-  }
-
   getDefaultStateObject() {
     return (
       this.props.states[Object.keys(this.props.states)[0]]
     )
   }
 
-  getDefaultSpinnerColor() {
-    return (
-      '#FFFFFF'
-    )
-  }
-
   render() {
 
-    // TODO: Check if this.props.states exists and has at least a text defined. If not, throw error
+    console.log(this.props.buttonState)
 
-    const backgroundStyle = this.props.backgroundStyle || this.getDefaultBackgroundStyle()
-    const labelStyle = this.props.labelStyle || this.getDefaultLabelStyle()
-    const currentStateObject = this.props.states[this.props.buttonState] || this.getDefaultCurrentStateObject()
-    const spinnerColor = currentStateObject.spinnerColor || this.getDefaultSpinnerColor()
+    const currentStateObject = this.props.states[this.props.buttonState] || this.getDefaultStateObject()
 
     const bgColor = this.state.backgroundColor.interpolate({
       inputRange: [
@@ -118,23 +90,38 @@ class AwesomeButton extends Component {
 
     if (currentStateObject.onPress) {
       return (
-        <TouchableOpacity style={ backgroundStyle }
-                          activeOpacity={0.92}
-                          onPress={currentStateObject.onPress}>
-          <Animated.View style={[ backgroundStyle, { backgroundColor: bgColor  } ]}>
-            <InnerButtonView currentStateObject={currentStateObject} labelStyle={ labelStyle } spinnerColor={ spinnerColor } />
+        <TouchableOpacity style={ this.props.backgroundStyle } activeOpacity={0.92} onPress={ currentStateObject.onPress }>
+          <Animated.View style={[ this.props.backgroundStyle, { backgroundColor: bgColor } ]}>
+            <InnerButtonView currentStateObject={ currentStateObject } labelStyle={ this.props.labelStyle } spinnerColor={ this.props.spinnerColor } />
           </Animated.View>
         </TouchableOpacity> 
       )
     } else {
       return (
-        <Animated.View style={[ backgroundStyle, { backgroundColor: bgColor } ]}>
-          <InnerButtonView currentStateObject={currentStateObject} labelStyle={ labelStyle } spinnerColor={ spinnerColor } />
+        <Animated.View style={[ this.props.backgroundStyle, { backgroundColor: bgColor } ]}>
+          <InnerButtonView currentStateObject={ currentStateObject } labelStyle={ this.props.labelStyle } spinnerColor={ this.props.spinnerColor } />
         </Animated.View>
       )
     }
   }
 
+}
+
+
+// TODO: Define possible propTypes and requirements
+
+
+AwesomeButton.defaultProps = {
+  backgroundStyle: {
+    flex: 1,
+    height: 40,
+    backgroundColor: '#477CCC',
+    borderRadius: 20
+  },
+  labelStyle: {
+    color: '#FFFFFF'
+  },
+  spinnerColor: '#FFFFFF'
 }
 
 

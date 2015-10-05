@@ -52,9 +52,9 @@ class Advanced extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <AwesomeButton  backgroundStyle={styles.loginButtonBackground}
-                        labelStyle={styles.loginButtonLabel}
-                        transitionDuration={200}
+        <AwesomeButton  backgroundStyle={ styles.loginButtonBackground }
+                        labelStyle={ styles.loginButtonLabel }
+                        transitionDuration={ 200 }
                         states={{
                           idle: {
                             text: 'Log In',
