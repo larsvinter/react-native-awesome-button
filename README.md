@@ -79,12 +79,11 @@ To run this example yourself, you need to do the following:
 
 1. Clone the full source code from github: `git clone git@github.com:larsvinter/react-native-awesome-button.git`
 2. Change to the proper directory of the simple example: `cd react-native-awesome-button/examples/Simple`
-3. Install dependecies: `npm install`
+3. Install dependencies: `npm install`
 4. Open the project in Xcode and hit 'run' (the project is inside 'ios' folder) (remember to restart the packager)
 
-
-
-
+<BR>
+<BR>
 
 #### Advanced Example
 
