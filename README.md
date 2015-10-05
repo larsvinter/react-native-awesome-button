@@ -87,12 +87,103 @@ To run this example yourself, you need to do the following:
 
 #### Advanced Example
 
-Coming soon.
+This shows how you might implement an animated button that transitions to a new state upon e.g. a user press. Notice that you create an object that specifies the different states and then pass the prop buttonState to the button, when you want it to transition to a new appearance. You can have an unlimited number of possible states for a button.
 
-This shows how you might implement an "animated login" button that transitions to a new state upon user click. Notice that you create an object that specifies the different states and then pass the prop buttonState to the button, when you want it to transition.
+```javascript
+const React = require('react-native')
+const AwesomeButton = require('react-native-awesome-button')
 
 
+const {
+  AppRegistry,
+  Component,
+  View,
+  StyleSheet
+} = React
 
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 20
+  },
+  loginButtonBackground: {
+    flex: 1,
+    height: 40,
+    borderRadius: 5
+  },
+  loginButtonLabel: {
+    color: 'white'
+  }
+})
+
+
+class Advanced extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+        buttonState: 'idle'
+    }
+    this.logIn = this.logIn.bind(this)
+  }
+
+  logIn() {
+    this.setState({ buttonState: 'busy' })
+    setTimeout(() => {
+      this.setState({ buttonState: 'success' })
+    }, 2000);
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <AwesomeButton  backgroundStyle={styles.loginButtonBackground}
+                        labelStyle={styles.loginButtonLabel}
+                        transitionDuration={0}
+                        states={{
+                          idle: {
+                            text: 'Log In',
+                            onPress: this.logIn,
+                            backgroundColor: '#1155DD',
+                          },
+                          busy: {
+                            text: 'Logging In',
+                            backgroundColor: '#002299',
+                            spinner: true,
+                          },
+                          success: {
+                            text: 'Logged In',
+                            backgroundColor: '#339944'
+                          }
+                        }}
+                        buttonState={this.state.buttonState}
+                        />
+      </View>
+    )
+  }
+}
+
+
+AppRegistry.registerComponent('Advanced', () => Advanced)
+```
+
+In this example, a login-button with three different appearances will be rendered. This would produce something like this (in 3 steps):
+
+![Example code result](https://raw.githubusercontent.com/larsvinter/react-native-awesome-button/master/docs/advanced.png)
+
+To run this example yourself, you need to do the following:
+
+1. Clone the full source code from github: `git clone git@github.com:larsvinter/react-native-awesome-button.git`
+2. Change to the proper directory of the simple example: `cd react-native-awesome-button/examples/Advanced`
+3. Install dependencies: `npm install`
+4. Open the project in Xcode and hit 'run' (the project is inside 'ios' folder) (remember to restart the packager)
+
+<BR>
+<BR>
 ### Component properties
 
 | Prop | Type | Description |
