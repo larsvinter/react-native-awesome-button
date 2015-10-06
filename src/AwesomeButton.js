@@ -61,7 +61,7 @@ class AwesomeButton extends Component {
     Animated.timing(this.state.backgroundColor,
     {
       toValue: 1,
-      duration: this.props.transitionDuration || 250
+      duration: this.props.transitionDuration
     }).start()
   }
 
@@ -113,7 +113,8 @@ AwesomeButton.defaultProps = {
   labelStyle: {
     color: '#FFFFFF'
   },
-  spinnerColor: '#FFFFFF'
+  spinnerColor: '#FFFFFF',
+  transitionDuration: 250
 }
 
 
