@@ -172,8 +172,7 @@ AppRegistry.registerComponent('Advanced', () => Advanced)
 ```
 
 In this example, a login-button with three different appearances will be rendered. This would produce something like this (in 3 steps):
-
-![Example code result](https://raw.githubusercontent.com/larsvinter/react-native-awesome-button/master/docs/advanced.png)
+![Example code result](https://raw.githubusercontent.com/Sh3rawi/react-native-awesome-button/Android_Support/docs/awesomeButton.gif)
 
 To run this example yourself, you need to do the following:
 
