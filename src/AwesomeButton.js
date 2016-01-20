@@ -3,7 +3,6 @@ const React = require('react-native')
 
 const {
   Animated,
-  ActivityIndicatorIOS,
   Component,
   View,
   Text,
@@ -11,18 +10,18 @@ const {
   TouchableOpacity
 } = React
 
+var ProgressBar = require('./ProgressBar');
 
 class InnerButtonView extends Component {
 
   render() {
     return(
       <View style={styles.insideView}>
-        { this.props.currentStateObject.spinner ? <ActivityIndicatorIOS color={ this.props.spinnerColor } style={styles.activityIndicator}/> : null }
+        { this.props.currentStateObject.spinner ? <ProgressBar color={ this.props.spinnerColor } style={styles.activityIndicator}/> : null }
         <Text style={ this.props.labelStyle }>{ this.props.currentStateObject.text }</Text>
       </View>
     )
   }
-  
 }
 
 
