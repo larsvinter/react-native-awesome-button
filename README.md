@@ -206,7 +206,6 @@ Each state in the states object should have a unique key. For each of these keys
 
 ### Roadmap
  - Improve transition animation (i.e. cross-fade the text label)
- - Add Android compatibility
 
 
 ### Contributing
