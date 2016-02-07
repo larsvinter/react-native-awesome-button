@@ -81,7 +81,7 @@ class AwesomeButton extends Component {
 
     if (currentStateObject.onPress) {
       return (
-        <TouchableOpacity style={ {flex: 1} } activeOpacity={0.92} onPress={ currentStateObject.onPress }>
+        <TouchableOpacity style={ {flex: 1} } activeOpacity={ this.props.activeOpacity || 0.92 } onPress={ currentStateObject.onPress }>
           <Animated.View style={[ this.props.backgroundStyle, { backgroundColor: bgColor } ]}>
             <InnerButtonView currentStateObject={ currentStateObject } labelStyle={ this.props.labelStyle } spinnerColor={ this.props.spinnerColor } />
           </Animated.View>
