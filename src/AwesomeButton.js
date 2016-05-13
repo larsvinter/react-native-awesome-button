@@ -1,14 +1,17 @@
-const React = require('react-native')
+const ReactNative = require('react-native')
+const React = require('react')
 
+const {
+  Component
+} = React
 
 const {
   Animated,
-  Component,
   View,
   Text,
   StyleSheet,
   TouchableOpacity
-} = React
+} = ReactNative
 
 var ProgressBar = require('./ProgressBar');
 
