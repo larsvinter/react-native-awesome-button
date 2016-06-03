@@ -1,14 +1,13 @@
-const React = require('react-native')
-
+const ReactNative = require('react-native')
+import React, { Component } from 'react';
 
 const {
   Animated,
-  Component,
   View,
   Text,
   StyleSheet,
   TouchableOpacity
-} = React
+} = ReactNative
 
 var ProgressBar = require('./ProgressBar');
 
@@ -32,8 +31,8 @@ class AwesomeButton extends Component {
     const currentStateObject = this.props.states[this.props.buttonState] || this.getDefaultStateObject()
     this.state = {
       backgroundColor: new Animated.Value(0),
-      startColor: this.hexToRgb(currentStateObject.backgroundColor), 
-      endColor: this.hexToRgb(currentStateObject.backgroundColor) 
+      startColor: this.hexToRgb(currentStateObject.backgroundColor),
+      endColor: this.hexToRgb(currentStateObject.backgroundColor)
     }
   }
 
@@ -54,7 +53,7 @@ class AwesomeButton extends Component {
     })
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
     return result ?  'rgb(' + parseInt(result[1], 16) + ', ' + parseInt(result[2], 16) + ', ' + parseInt(result[3], 16) + ')' : null
-  }  
+  }
 
   startAnimation() {
     Animated.timing(this.state.backgroundColor,
@@ -85,7 +84,7 @@ class AwesomeButton extends Component {
           <Animated.View style={[ this.props.backgroundStyle, { backgroundColor: bgColor } ]}>
             <InnerButtonView currentStateObject={ currentStateObject } labelStyle={ this.props.labelStyle } spinnerColor={ this.props.spinnerColor } />
           </Animated.View>
-        </TouchableOpacity> 
+        </TouchableOpacity>
       )
     } else {
       return (
