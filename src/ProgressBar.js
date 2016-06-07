@@ -1,11 +1,13 @@
 'use strict';
 
-var React = require('react-native');
-var {
+const ReactNative = require('react-native')
+const React = require('react')
+
+const {
   Platform,
   ActivityIndicatorIOS,
-  ProgressBarAndroid,
-} = React;
+  ProgressBarAndroid
+} = ReactNative
 
 var ProgressBar = React.createClass({
   render() {
