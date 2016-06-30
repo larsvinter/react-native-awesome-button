@@ -2,18 +2,16 @@
  * Sample React Native App showing use of AwesomeButton
  */
 
+ 'use strict';
 
-const React = require('react-native')
-const AwesomeButton = require('react-native-awesome-button')
+import React, { Component } from 'react';
 
-
-const {
+import {
   AppRegistry,
   Component,
   View,
   StyleSheet
-} = React
-
+} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,7 +22,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 })
-
 
 class Simple extends Component {
   
