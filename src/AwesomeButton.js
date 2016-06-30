@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import {
   Animated,
@@ -23,6 +23,9 @@ class InnerButtonView extends Component {
 
 
 export default class AwesomeButton extends Component {
+  static propTypes = {
+    states: PropTypes.object.isRequired
+  }
   constructor(props) {
     super(props);
     const currentStateObject = this.props.states[this.props.buttonState] || this.getDefaultStateObject()
@@ -91,9 +94,6 @@ export default class AwesomeButton extends Component {
     }
   }
 }
-
-
-// TODO: Define possible propTypes and requirements
 
 
 AwesomeButton.defaultProps = {

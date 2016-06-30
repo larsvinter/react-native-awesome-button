@@ -23,16 +23,15 @@ An `<AwesomeButton />` component that creates a button depicting different state
 #### Simple Example
 To use `<AwesomeButton>`, you need to require `react-native-awesome-button` to your module and insert `<AwesomeButton>` tag inside render function with the required properties as it's done below:
 ```javascript
-const React = require('react-native')
-const AwesomeButton = require('react-native-awesome-button')
+import React, { Component } from 'react';
 
-
-const {
+import {
   AppRegistry,
-  Component,
   View,
   StyleSheet
-} = React
+} from 'react-native';
+
+import AwesomeButton from 'react-native-awesome-button';
 
 
 const styles = StyleSheet.create({
@@ -58,7 +57,8 @@ class Simple extends Component {
         <AwesomeButton states={{
                         default: {
                           text: 'Press me',
-                          onPress: this.handleButtonPress
+                          onPress: this.handleButtonPress,
+                          backgroundColor: '#1155DD'
                         }
                        }} />
       </View>

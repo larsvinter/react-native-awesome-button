@@ -18,4 +18,4 @@ export default class ProgressBar extends Component {
       );
     }
   }
-});
+}
