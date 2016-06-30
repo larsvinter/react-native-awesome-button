@@ -1,18 +1,16 @@
-const ReactNative = require('react-native')
 import React, { Component } from 'react';
 
-const {
+import {
   Animated,
   View,
   Text,
   StyleSheet,
   TouchableOpacity
-} = ReactNative
+} from 'react-native';
 
-var ProgressBar = require('./ProgressBar');
+import ProgressBar from './ProgressBar';
 
 class InnerButtonView extends Component {
-
   render() {
     return(
       <View style={styles.insideView}>
@@ -24,8 +22,7 @@ class InnerButtonView extends Component {
 }
 
 
-class AwesomeButton extends Component {
-
+export default class AwesomeButton extends Component {
   constructor(props) {
     super(props);
     const currentStateObject = this.props.states[this.props.buttonState] || this.getDefaultStateObject()
@@ -70,7 +67,6 @@ class AwesomeButton extends Component {
   }
 
   render() {
-
     const currentStateObject = this.props.states[this.props.buttonState] || this.getDefaultStateObject()
 
     const bgColor = this.state.backgroundColor.interpolate({
@@ -94,7 +90,6 @@ class AwesomeButton extends Component {
       )
     }
   }
-
 }
 
 
@@ -131,6 +126,3 @@ const styles = StyleSheet.create({
     flex: 1,
   }
 })
-
-
-module.exports = AwesomeButton

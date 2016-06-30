@@ -1,20 +1,12 @@
-'use strict';
+import React, { Component } from 'react';
 
-const ReactNative = require('react-native')
-const {
+import {
   Platform,
   ActivityIndicatorIOS,
   ProgressBarAndroid
-} = ReactNative
-import React, { Component } from 'react';
+} from  'react-native';
 
-var {
-  Platform,
-  ActivityIndicatorIOS,
-  ProgressBarAndroid,
-} = ReactNative;
-
-var ProgressBar = React.createClass({
+export default class ProgressBar extends Component {
   render() {
     if (Platform.OS === 'ios') {
       return (
@@ -27,5 +19,3 @@ var ProgressBar = React.createClass({
     }
   }
 });
-
-module.exports = ProgressBar;
