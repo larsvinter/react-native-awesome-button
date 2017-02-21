@@ -1,3 +1,3 @@
-const AwesomeButton = require('./src/AwesomeButton.js')
+import AwesomeButton from './src/AwesomeButton';
 
-module.exports = AwesomeButton
+export default AwesomeButton;

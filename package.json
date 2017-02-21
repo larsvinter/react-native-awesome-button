@@ -1,6 +1,6 @@
 {
   "name": "react-native-awesome-button",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "A React Native component rendering a button supporting showing different appearances and functionality given the passed props",
   "main": "index.js",
   "scripts": {
@@ -24,5 +24,16 @@
     "url": "https://github.com/larsvinter/react-native-awesome-button/issues"
   },
   "homepage": "https://github.com/larsvinter/react-native-awesome-button#readme",
-  "dependencies": {}
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-native": "^0.41.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.16.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0"
+  }
 }
