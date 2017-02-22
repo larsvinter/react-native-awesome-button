@@ -29,13 +29,13 @@ class AwesomeButton extends Component {
   }
 
   render() {
-    const { backgroundStyle, labelStyle, text, activityIndicator, onPress } = this.state.viewState;
+    const { backgroundStyle, labelStyle, text, spinner, onPress } = this.state.viewState;
     return (
       <OuterButtonView
         backgroundStyle={backgroundStyle}
         labelStyle={labelStyle}
         text={text}
-        activityIndicator={activityIndicator}
+        spinner={spinner}
         onPress={onPress}
       />
     );
