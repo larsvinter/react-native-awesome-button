@@ -22,6 +22,8 @@ class AwesomeButton extends Component {
     super(props);
     this.state = {
       backgroundColor: new Animated.Value(0),
+      startColor: this.props.states[this.props.buttonState].backgroundColor,
+      endColor: this.props.states[this.props.buttonState].backgroundColor
     };
   }
 
@@ -47,12 +49,10 @@ class AwesomeButton extends Component {
   }
 
   render() {
-    let bgColor = this.state.backgroundColor.interpolate({
+    const bgColor = this.state.backgroundColor.interpolate({
       inputRange: [0, 1],
       outputRange: [this.state.startColor, this.state.endColor]
     });
-
-    bgColor = 'rgb(232, 123, 123)';
 
     const AnimatedView =
       (<Animated.View style={[this.props.backgroundStyle, { backgroundColor: bgColor }]}>
