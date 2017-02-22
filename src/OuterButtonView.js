@@ -21,11 +21,13 @@ OuterButtonView.defaultProps = {
   backgroundStyle: {
     flex: 1,
     maxHeight: 40,
-    backgroundColor: '#00FF00',
-    borderRadius: 20
+    backgroundColor: '#1155DD',
+    borderRadius: 20,
+    alignSelf: 'stretch'
   },
   labelStyle: {
-    color: '#FFFFFF'
+    color: '#FFFFFF',
+    textAlign: 'center'
   },
   text: 'Click here'
 };
