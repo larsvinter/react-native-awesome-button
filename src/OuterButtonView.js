@@ -21,7 +21,7 @@ OuterButtonView.defaultProps = {
   backgroundStyle: {
     flex: 1,
     maxHeight: 40,
-    backgrouldColor: '#00FF00',
+    backgroundColor: '#00FF00',
     borderRadius: 20
   },
   labelStyle: {
