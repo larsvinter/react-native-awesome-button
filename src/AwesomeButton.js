@@ -78,7 +78,7 @@ class AwesomeButton extends Component {
         >
           <Animated.View style={[this.props.backgroundStyle, { backgroundColor: bgColor }]}>
             <InnerButtonView
-              currentStateObject={currentStateObject}
+              currentStateObject={this.props.currentStateObject}
               labelStyle={this.props.labelStyle}
               spinnerColor={this.props.spinnerColor}
             />
@@ -89,7 +89,7 @@ class AwesomeButton extends Component {
     return (
       <Animated.View style={[this.props.backgroundStyle, { backgroundColor: bgColor }]}>
         <InnerButtonView
-          currentStateObject={currentStateObject}
+          currentStateObject={this.props.currentStateObject}
           labelStyle={this.props.labelStyle}
           spinnerColor={this.props.spinnerColor}
         />
