@@ -3,7 +3,8 @@ import {
   Animated,
   TouchableOpacity,
   View,
-  Text
+  Text,
+  StyleSheet
 } from 'react-native';
 
 import OuterButtonView from './OuterButtonView';
@@ -27,7 +28,7 @@ class AwesomeButton extends Component {
     const { backgroundStyle, labelStyle, text } = this.state.viewState;
     return (
       <OuterButtonView
-        backgroundStyle={backgroundStyle}
+        backgroundStyle={StyleSheet.create(backgroundStyle).backgroundStyle}
         labelStyle={labelStyle}
         text={text}
       />

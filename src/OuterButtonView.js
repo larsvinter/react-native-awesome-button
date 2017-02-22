@@ -14,7 +14,8 @@ const OuterButtonView = (props) => {
 OuterButtonView.propTypes = {
   backgroundStyle: PropTypes.object,
   labelStyle: PropTypes.object,
-  text: PropTypes.string
+  text: PropTypes.string,
+  onPress: PropTypes.func
 };
 
 OuterButtonView.defaultProps = {
@@ -28,7 +29,8 @@ OuterButtonView.defaultProps = {
     color: '#FFFFFF',
     textAlign: 'center'
   },
-  text: 'Click here'
+  text: 'Click here',
+  onPress: (() => {}) // work-around to suppress eslinters no-default-prop
 };
 
 export default OuterButtonView;
