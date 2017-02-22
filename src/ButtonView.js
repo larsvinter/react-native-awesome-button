@@ -14,7 +14,7 @@ const ButtonView = (props) => {
       activeOpacity={0.8}
       disabled={props.disabled}
     >
-      <View style={[styles.backgroundStyle, { backgroundColor: 'blue' }]}>
+      <View style={styles.backgroundStyle}>
         <View style={{ flexDirection: 'row' }}>
           { props.spinner ?
             <ActivityIndicator {...props.spinnerProps} style={{ marginRight: 10 }} />
