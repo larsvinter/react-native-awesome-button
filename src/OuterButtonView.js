@@ -13,10 +13,13 @@ const OuterButtonView = (props) => {
     <TouchableOpacity
       onPress={props.onPress}
       activeOpacity={0.8}
+      disabled={props.onPress ? false : true}
     >
       <View style={styles.backgroundStyle}>
-        { props.spinner ? <ActivityIndicator {...props.spinnerProps} /> : null }
-        <Text style={styles.labelStyle}>{props.text}</Text>
+        <View style={{ flexDirection: 'row' }}>
+          { props.spinner ? <ActivityIndicator {...props.spinnerProps} /> : null }
+          <Text style={styles.labelStyle}>{props.text}</Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
