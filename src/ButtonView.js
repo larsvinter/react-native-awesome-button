@@ -4,7 +4,6 @@ import { ActivityIndicator, View, Text, TouchableOpacity, StyleSheet } from 'rea
 
 const ButtonView = (props) => {
   const styles = StyleSheet.create({
-    backgroundStyle: props.backgroundStyle,
     labelStyle: props.labelStyle,
   });
 
