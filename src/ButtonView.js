@@ -1,12 +1,8 @@
 import React, { PropTypes } from 'react';
-import { ActivityIndicator, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { ActivityIndicator, View, Text, TouchableOpacity } from 'react-native';
 
 
 const ButtonView = (props) => {
-  const styles = StyleSheet.create({
-    labelStyle: props.labelStyle,
-  });
-
   return (
     <TouchableOpacity
       onPress={props.onPress}
@@ -19,7 +15,7 @@ const ButtonView = (props) => {
             <ActivityIndicator {...props.spinnerProps} style={{ marginRight: 10 }} />
             : null
           }
-          <Text style={styles.labelStyle}>{props.text}</Text>
+          <Text style={props.labelStyle}>{props.text}</Text>
         </View>
       </View>
     </TouchableOpacity>

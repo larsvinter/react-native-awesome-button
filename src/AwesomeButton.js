@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Animated } from 'react-native';
+import { Animated, StyleSheet } from 'react-native';
 
 import ButtonView from './ButtonView';
 
@@ -53,8 +53,8 @@ class AwesomeButton extends Component {
     return (
       <Animated.View>
         <ButtonView
-          backgroundStyle={[backgroundStyle, { backgroundColor }]}
-          labelStyle={labelStyle}
+          backgroundStyle={StyleSheet.flatten([backgroundStyle, { backgroundColor }])}
+          labelStyle={StyleSheet.create(labelStyle)}
           text={text}
           spinner={spinner}
           onPress={onPress}
