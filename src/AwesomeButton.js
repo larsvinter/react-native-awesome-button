@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Animated, StyleSheet } from 'react-native';
+import { Animated, View, StyleSheet } from 'react-native';
 
 import ButtonView from './ButtonView';
 
@@ -52,7 +52,7 @@ class AwesomeButton extends Component {
     });
     console.log(backgroundColor);
     return (
-      <Animated.View>
+      <View>
         <ButtonView
           backgroundStyle={StyleSheet.flatten([backgroundStyle, { backgroundColor }])}
           labelStyle={StyleSheet.create(labelStyle)}
@@ -61,7 +61,7 @@ class AwesomeButton extends Component {
           onPress={onPress}
           disabled={onPress ? false : true}
         />
-      </Animated.View>
+      </View>
     );
   }
 }

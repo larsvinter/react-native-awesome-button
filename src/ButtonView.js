@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { ActivityIndicator, View, Text, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, Animated, View, Text, TouchableOpacity } from 'react-native';
 
 
 const ButtonView = (props) => {
@@ -9,7 +9,7 @@ const ButtonView = (props) => {
       activeOpacity={0.8}
       disabled={props.disabled}
     >
-      <View style={props.backgroundStyle}>
+      <Animated.View style={props.backgroundStyle}>
         <View style={{ flexDirection: 'row' }}>
           { props.spinner ?
             <ActivityIndicator {...props.spinnerProps} style={{ marginRight: 10 }} />
@@ -17,7 +17,7 @@ const ButtonView = (props) => {
           }
           <Text style={props.labelStyle}>{props.text}</Text>
         </View>
-      </View>
+      </Animated.View>
     </TouchableOpacity>
   );
 };
