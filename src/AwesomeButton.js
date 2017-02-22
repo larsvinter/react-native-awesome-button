@@ -72,7 +72,7 @@ class AwesomeButton extends Component {
         </TouchableOpacity>
       );
     }
-    return <AnimatedView />;
+    return { AnimatedView };
   }
 }
 
