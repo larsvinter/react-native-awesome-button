@@ -24,7 +24,7 @@ class AwesomeButton extends Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.buttonState) {
-      this.setState({ viewState: newProps.buttonState });
+      this.setState({ viewState: newProps.states[newProps.buttonState] });
     }
   }
 
