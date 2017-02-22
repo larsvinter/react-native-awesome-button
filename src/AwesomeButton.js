@@ -46,7 +46,9 @@ class AwesomeButton extends Component {
     const { backgroundStyle, labelStyle, text, spinner, onPress } = this.state.viewState;
     const backgroundColor = this.state.backgroundColor.interpolate({
       inputRange: [0, 1],
-      outputRange: [this.state.prevBackgroundColor, backgroundStyle.backgroundColor]
+      outputRange: this.state.prevBackgroundColor ?
+        [this.state.prevBackgroundColor, backgroundStyle.backgroundColor]
+        : [backgroundStyle.backgroundColor, backgroundStyle.backgroundColor]
     });
     return (
       <Animated.View>
