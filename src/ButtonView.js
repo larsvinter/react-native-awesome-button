@@ -37,7 +37,7 @@ ButtonView.defaultProps = {
     flex: 1,
     maxHeight: 40,
     backgroundColor: '#1155DD',
-    borderRadius: 20,
+    borderRadius: 20
   },
   labelStyle: {
     color: '#FFFFFF',
