@@ -37,6 +37,7 @@ class AwesomeButton extends Component {
         text={text}
         spinner={spinner}
         onPress={onPress}
+        disabled={onPress ? false : true}
       />
     );
   }

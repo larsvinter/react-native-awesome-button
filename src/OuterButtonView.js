@@ -13,7 +13,7 @@ const OuterButtonView = (props) => {
     <TouchableOpacity
       onPress={props.onPress}
       activeOpacity={0.8}
-      disabled
+      disabled={props.disabled}
     >
       <View style={styles.backgroundStyle}>
         <View style={{ flexDirection: 'row' }}>
@@ -34,7 +34,8 @@ OuterButtonView.propTypes = {
   spinnerProps: PropTypes.object,
   text: PropTypes.string,
   onPress: PropTypes.func,
-  spinner: PropTypes.bool
+  spinner: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 
 OuterButtonView.defaultProps = {
@@ -54,6 +55,7 @@ OuterButtonView.defaultProps = {
   },
   text: 'Click here',
   spinner: false,
+  disabled: true,
   onPress: (() => {}) // work-around to suppress eslinters no-default-prop
 };
 
