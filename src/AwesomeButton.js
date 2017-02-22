@@ -5,7 +5,7 @@ import {
   View,
 } from 'react-native';
 
-import OuterButtonView from './OuterButtonView';
+import ButtonView from './ButtonView';
 
 
 class AwesomeButton extends Component {
@@ -31,7 +31,7 @@ class AwesomeButton extends Component {
   render() {
     const { backgroundStyle, labelStyle, text, spinner, onPress } = this.state.viewState;
     return (
-      <OuterButtonView
+      <ButtonView
         backgroundStyle={backgroundStyle}
         labelStyle={labelStyle}
         text={text}
