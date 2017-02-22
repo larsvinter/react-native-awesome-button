@@ -11,7 +11,7 @@ import InnerButtonView from './InnerButtonView';
 class AwesomeButton extends Component {
   static propTypes = {
     states: PropTypes.shape.isRequired,
-    buttonState: PropTypes.string.isRequired,
+    buttonState: PropTypes.string,
     transitionDuration: PropTypes.number,
     spinnerColor: PropTypes.string,
     labelStyle: PropTypes.shape,

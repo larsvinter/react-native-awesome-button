@@ -18,8 +18,7 @@ const styles = StyleSheet.create({
 
 const InnerButtonView = props => (
   <View style={styles.insideView}>
-    { props.currentStateObject.spinner ? <ActivityIndicator color={props.spinnerColor} style={styles.activityIndicator} styleAttr="small" /> : null }
-    <Text style={props.labelStyle}>{props.currentStateObject.text}</Text>
+    <Text>Test</Text>
   </View>
 );
 
