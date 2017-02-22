@@ -17,7 +17,10 @@ const OuterButtonView = (props) => {
     >
       <View style={styles.backgroundStyle}>
         <View style={{ flexDirection: 'row' }}>
-          { props.spinner ? <ActivityIndicator {...props.spinnerProps} /> : null }
+          { props.spinner ?
+            <ActivityIndicator {...props.spinnerProps} style={{ marginRight: 10 }} />
+            : null
+          }
           <Text style={styles.labelStyle}>{props.text}</Text>
         </View>
       </View>
