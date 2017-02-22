@@ -30,8 +30,8 @@ class AwesomeButton extends Component {
   componentWillReceiveProps(nextProps) {
     this.setState({
       backgroundColor: new Animated.Value(0),
-      startColor: this.props.states[this.props.buttonState].backgroundColor,
-      endColor: this.props.states[nextProps.buttonState].backgroundColor
+      startColor: this.props.states[this.props.buttonState].backgroundStyle.backgroundColor,
+      endColor: this.props.states[nextProps.buttonState].backgroundStyle.backgroundColor
     });
   }
 
