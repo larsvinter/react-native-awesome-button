@@ -15,7 +15,7 @@ const OuterButtonView = (props) => {
       activeOpacity={0.8}
     >
       <View style={styles.backgroundStyle}>
-        { props.spinner ? <ActivityIndicator {props.spinnerProps} /> : null }
+        { props.spinner ? <ActivityIndicator {...props.spinnerProps} /> : null }
         <Text style={styles.labelStyle}>{props.text}</Text>
       </View>
     </TouchableOpacity>
@@ -25,7 +25,7 @@ const OuterButtonView = (props) => {
 OuterButtonView.propTypes = {
   backgroundStyle: PropTypes.object,
   labelStyle: PropTypes.object,
-  spinnerStyle: PropTypes.object,
+  spinnerProps: PropTypes.object,
   text: PropTypes.string,
   onPress: PropTypes.func,
   spinner: PropTypes.bool
