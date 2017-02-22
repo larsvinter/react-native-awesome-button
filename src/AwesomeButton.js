@@ -28,7 +28,7 @@ class AwesomeButton extends Component {
     const { backgroundStyle, labelStyle, text } = this.state.viewState;
     return (
       <OuterButtonView
-        backgroundStyle={StyleSheet.create({ backgroundStyle }).backgroundStyle}
+        backgroundStyle={backgroundStyle}
         labelStyle={labelStyle}
         text={text}
       />

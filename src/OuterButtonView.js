@@ -4,9 +4,14 @@ import { View, Text } from 'react-native';
 import InnerButtonView from './InnerButtonView';
 
 const OuterButtonView = (props) => {
+  const styles = StyleSheet.create({
+    backgroundStyle: props.backgroundStyle,
+    labelStyle: props.labelStyle
+  });
+
   return (
-    <View style={props.backgroundStyle}>
-      <Text style={props.labelStyle}>{props.text}</Text>
+    <View style={styles.backgroundStyle}>
+      <Text style={styles.labelStyle}>{props.text}</Text>
     </View>
   );
 };
