@@ -1,123 +1,37 @@
 import React, { Component, PropTypes } from 'react';
 import {
   Animated,
-  TouchableOpacity
+  TouchableOpacity,
+  View,
+  Text
 } from 'react-native';
 
-import InnerButtonView from './InnerButtonView';
+import OuterButtonView from './OuterButtonView';
 
 
 class AwesomeButton extends Component {
   static propTypes = {
     states: PropTypes.object.isRequired,
     buttonState: PropTypes.string,
-    transitionDuration: PropTypes.number,
-    spinnerColor: PropTypes.string,
-    activeOpacity: PropTypes.number,
-    labelStyle: PropTypes.object,
-    backgroundStyle: PropTypes.object,
   }
 
   constructor(props) {
     super(props);
-
-    let startColor;
-    let endColor;
-
-    if (this.props.states[this.props.buttonState].backgroundStyle.backgroundColor) {
-      startColor = this.props.states[this.props.buttonState].backgroundStyle.backgroundColor;
-      endColor = this.props.states[this.props.buttonState].backgroundStyle.backgroundColor;
-    } else {
-      startColor = '#FF0000';
-      endColor = '#FF0000';
-    }
-
     this.state = {
-      backgroundColor: new Animated.Value(0),
-      startColor,
-      endColor
+      viewState: this.props.states[this.props.buttonState] || this.props.states[0]
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    let startColor;
-    let endColor;
-
-    if (this.props.states[this.props.buttonState].backgroundStyle.backgroundColor) {
-      startColor = this.props.states[this.props.buttonState].backgroundStyle.backgroundColor;
-      endColor = this.props.states[this.props.buttonState].backgroundStyle.backgroundColor;
-    } else {
-      startColor = '#FF0000';
-      endColor = '#FF0000';
-    }
-
-    this.setState({
-      backgroundColor: new Animated.Value(0),
-      startColor,
-      endColor
-    });
-  }
-
-  componentDidUpdate() {
-    this.startAnimation();
-  }
-
-  startAnimation() {
-    Animated.timing(this.state.backgroundColor,
-      {
-        toValue: 1,
-        duration: this.props.transitionDuration
-      }
-    ).start();
-  }
-
   render() {
-    const bgColor = this.state.backgroundColor.interpolate({
-      inputRange: [0, 1],
-      outputRange: [this.state.startColor, this.state.endColor]
-    });
-
-    const AnimatedView =
-      (<Animated.View style={[this.props.backgroundStyle, { backgroundColor: bgColor }]}>
-        <InnerButtonView
-          currentStateObject={this.props.states[this.props.buttonState]}
-          labelStyle={this.props.labelStyle}
-          spinnerColor={this.props.spinnerColor}
-        />
-      </Animated.View>);
-
-    if (this.props.states[this.props.buttonState].onPress) {
-      return (
-        <TouchableOpacity
-          style={{ flex: 1 }}
-          activeOpacity={this.props.activeOpacity}
-          onPress={this.props.states[this.props.buttonState].onPress}
-        >
-          { AnimatedView }
-        </TouchableOpacity>
-      );
-    }
-    return { AnimatedView };
+    return (
+      // <OuterButtonView states={this.props.states} />
+      <View><Text>Test</Text></View>
+    );
   }
 }
 
-
 AwesomeButton.defaultProps = {
-  buttonState: 'default',
-  backgroundStyle: {
-    flex: 1,
-    maxHeight: 40,
-    backgroundColor: 'rgb(255, 0, 0)',
-    borderRadius: 20
-  },
-  labelStyle: {
-    color: '#FFFFFF'
-  },
-  spinnerColor: '#FFFFFF',
-  transitionDuration: 250,
-  activeOpacity: 0.92
+  buttonState: 'default'
 };
 
-
 export default AwesomeButton;
-
