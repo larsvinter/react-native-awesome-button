@@ -13,7 +13,7 @@ const OuterButtonView = (props) => {
     <TouchableOpacity
       onPress={props.onPress}
       activeOpacity={0.8}
-      disabled={props.onPress ? false : true}
+      disabled
     >
       <View style={styles.backgroundStyle}>
         <View style={{ flexDirection: 'row' }}>
