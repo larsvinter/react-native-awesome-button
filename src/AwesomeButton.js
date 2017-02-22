@@ -50,7 +50,7 @@ class AwesomeButton extends Component {
         [this.state.prevBackgroundColor, backgroundStyle.backgroundColor]
         : [backgroundStyle.backgroundColor, backgroundStyle.backgroundColor]
     });
-    backgroundColor = 'rgb(232, 123, 12)';
+    backgroundColor = 'rgba(232, 123, 12, 1.0)';
     return (
       <Animated.View>
         <ButtonView
