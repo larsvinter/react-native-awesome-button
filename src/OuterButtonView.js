@@ -19,10 +19,13 @@ OuterButtonView.propTypes = {
 
 OuterButtonView.defaultProps = {
   backgroundStyle: {
-    backgrouldColor: 'rgb(0, 255, 0)'
+    flex: 1,
+    maxHeight: 40,
+    backgrouldColor: '#00FF00',
+    borderRadius: 20
   },
   labelStyle: {
-    color: 'rgb(255, 255, 255)'
+    color: '#FFFFFF'
   },
   text: 'Click here'
 };
