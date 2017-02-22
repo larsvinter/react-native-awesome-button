@@ -52,6 +52,8 @@ class AwesomeButton extends Component {
       outputRange: [this.state.startColor, this.state.endColor]
     });
 
+    bgColor = 'rgb(232, 123, 123)';
+
     const AnimatedView =
       (<Animated.View style={[this.props.backgroundStyle, { backgroundColor: bgColor }]}>
         <InnerButtonView
