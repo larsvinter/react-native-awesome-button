@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 import InnerButtonView from './InnerButtonView';
 
@@ -10,9 +10,13 @@ const OuterButtonView = (props) => {
   });
 
   return (
-    <View style={styles.backgroundStyle}>
-      <Text style={styles.labelStyle}>{props.text}</Text>
-    </View>
+    <TouchableOpacity
+      onPress={props.onPress}
+    >
+      <View style={styles.backgroundStyle}>
+        <Text style={styles.labelStyle}>{props.text}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 

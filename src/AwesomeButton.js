@@ -25,13 +25,11 @@ class AwesomeButton extends Component {
   render() {
     const { backgroundStyle, labelStyle, text } = this.state.viewState;
     return (
-
-        <OuterButtonView
-          backgroundStyle={backgroundStyle}
-          labelStyle={labelStyle}
-          text={text}
-        />
-
+      <OuterButtonView
+        backgroundStyle={backgroundStyle}
+        labelStyle={labelStyle}
+        text={text}
+      />
     );
   }
 }
