@@ -5,26 +5,26 @@ import InnerButtonView from './InnerButtonView';
 
 const OuterButtonView = (props) => {
   return (
-    <View style={props.viewState.backgroundStyle}>
-      <Text style={props.viewState.labelStyle}>{props.viewState.text}</Text>
+    <View style={props.backgroundStyle}>
+      <Text style={props.labelStyle}>{props.text}</Text>
     </View>
   );
 };
 
 OuterButtonView.propTypes = {
-  viewState: PropTypes.object
+  backgroundStyle: PropTypes.object,
+  labelStyle: PropTypes.object,
+  text: PropTypes.string
 };
 
 OuterButtonView.defaultProps = {
-  viewState: {
-    backgroundStyle: {
-      backgrouldColor: 'rgb(0, 255, 0)'
-    },
-    labelStyle: {
-      color: 'rgb(255, 255, 0)'
-    },
-    text: 'Click here'
-  }
+  backgroundStyle: {
+    backgrouldColor: 'rgb(0, 255, 0)'
+  },
+  labelStyle: {
+    color: 'rgb(255, 255, 255)'
+  },
+  text: 'Click here'
 };
 
 export default OuterButtonView;

@@ -25,7 +25,11 @@ class AwesomeButton extends Component {
 
   render() {
     return (
-      <OuterButtonView viewState={this.state.viewState} />
+      <OuterButtonView
+        backgroundStyle={this.state.viewState.backgroundStyle}
+        labelStyle={this.state.viewState.labelStyle}
+        text={this.state.viewState.text}
+      />
     );
   }
 }
