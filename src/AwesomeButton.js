@@ -52,8 +52,8 @@ class AwesomeButton extends Component {
       outputRange: [this.state.startColor, this.state.endColor]
     });
 
-    const AnimatedView = (
-      <Animated.View style={[this.props.backgroundStyle, { backgroundColor: bgColor }]}>
+    const AnimatedView =
+      (<Animated.View style={[this.props.backgroundStyle, { backgroundColor: bgColor }]}>
         <InnerButtonView
           currentStateObject={this.props.states[this.props.buttonState]}
           labelStyle={this.props.labelStyle}
@@ -68,7 +68,7 @@ class AwesomeButton extends Component {
           activeOpacity={this.props.activeOpacity}
           onPress={this.props.states[this.props.buttonState].onPress}
         >
-          <AnimatedView />
+          { AnimatedView }
         </TouchableOpacity>
       );
     }
