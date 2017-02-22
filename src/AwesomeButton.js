@@ -22,6 +22,12 @@ class AwesomeButton extends Component {
     };
   }
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.buttonState) {
+      this.setState({ viewState: newProps.buttonState });
+    }
+  }
+
   render() {
     const { backgroundStyle, labelStyle, text, onPress } = this.state.viewState;
     return (
