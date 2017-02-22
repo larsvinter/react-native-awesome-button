@@ -7,7 +7,6 @@ const OuterButtonView = (props) => {
   const styles = StyleSheet.create({
     backgroundStyle: props.backgroundStyle,
     labelStyle: props.labelStyle,
-    spinnerStyle: props.spinnerStyle
   });
 
   return (
@@ -16,7 +15,7 @@ const OuterButtonView = (props) => {
       activeOpacity={0.8}
     >
       <View style={styles.backgroundStyle}>
-        { props.spinner ? <ActivityIndicator style={styles.spinnerStyle} /> : null }
+        { props.spinner ? <ActivityIndicator {props.spinnerProps} /> : null }
         <Text style={styles.labelStyle}>{props.text}</Text>
       </View>
     </TouchableOpacity>
@@ -43,7 +42,7 @@ OuterButtonView.defaultProps = {
     color: '#FFFFFF',
     textAlign: 'center'
   },
-  spinnerStyle: {
+  spinnerProps: {
     animating: true,
     color: '#FFFFFF'
   },
