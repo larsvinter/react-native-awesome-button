@@ -16,7 +16,7 @@ class AwesomeButton extends Component {
     this.state = {
       viewState: this.props.states[this.props.buttonState] ||
         this.props.states[Object.keys(this.props.states)[0]],
-      backgroundColor: new Animated.Value(0)
+      backgroundColor: new Animated.Value(0.0)
     };
   }
 
@@ -36,7 +36,7 @@ class AwesomeButton extends Component {
   startAnimation() {
     Animated.timing(this.state.backgroundColor,
       {
-        toValue: 1,
+        toValue: 1.0,
         duration: this.props.transitionDuration
       }
     ).start();
