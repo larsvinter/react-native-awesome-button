@@ -23,7 +23,7 @@ class AwesomeButton extends Component {
 
     let startColor;
     let endColor;
-    
+
     if (this.props.states[this.props.buttonState].backgroundStyle.backgroundColor) {
       startColor = this.props.states[this.props.buttonState].backgroundStyle.backgroundColor;
       endColor = this.props.states[this.props.buttonState].backgroundStyle.backgroundColor;
@@ -40,10 +40,21 @@ class AwesomeButton extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    let startColor;
+    let endColor;
+
+    if (this.props.states[this.props.buttonState].backgroundStyle.backgroundColor) {
+      startColor = this.props.states[this.props.buttonState].backgroundStyle.backgroundColor;
+      endColor = this.props.states[this.props.buttonState].backgroundStyle.backgroundColor;
+    } else {
+      startColor = '#FF0000';
+      endColor = '#FF0000';
+    }
+
     this.setState({
       backgroundColor: new Animated.Value(0),
-      startColor: this.props.states[this.props.buttonState].backgroundStyle.backgroundColor,
-      endColor: this.props.states[nextProps.buttonState].backgroundStyle.backgroundColor
+      startColor,
+      endColor
     });
   }
 
