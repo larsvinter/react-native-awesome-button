@@ -23,7 +23,6 @@ OuterButtonView.defaultProps = {
     maxHeight: 40,
     backgroundColor: '#1155DD',
     borderRadius: 20,
-    alignSelf: 'stretch'
   },
   labelStyle: {
     color: '#FFFFFF',
