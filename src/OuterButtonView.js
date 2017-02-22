@@ -12,6 +12,7 @@ const OuterButtonView = (props) => {
   return (
     <TouchableOpacity
       onPress={props.onPress}
+      activeOpacity={0.8}
     >
       <View style={styles.backgroundStyle}>
         <Text style={styles.labelStyle}>{props.text}</Text>
