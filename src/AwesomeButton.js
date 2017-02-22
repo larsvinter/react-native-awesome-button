@@ -3,6 +3,7 @@ import {
   Animated,
   TouchableOpacity
 } from 'react-native';
+// import hexToRgb from 'hex-rgb';
 
 import InnerButtonView from './InnerButtonView';
 
@@ -24,8 +25,8 @@ class AwesomeButton extends Component {
       || this.getDefaultStateObject();
     this.state = {
       backgroundColor: new Animated.Value(0),
-      startColor: this.hexToRgb(currentStateObject.backgroundColor),
-      endColor: this.hexToRgb(currentStateObject.backgroundColor)
+      startColor: currentStateObject.backgroundColor,
+      endColor: currentStateObject.backgroundColor
     };
   }
 
@@ -35,8 +36,8 @@ class AwesomeButton extends Component {
     const nextStateObject = nextProps.states[nextProps.buttonState] || this.getDefaultStateObject();
     this.setState({
       backgroundColor: new Animated.Value(0),
-      startColor: this.hexToRgb(currentStateObject.backgroundColor),
-      endColor: this.hexToRgb(nextStateObject.backgroundColor)
+      startColor: currentStateObject.backgroundColor,
+      endColor: nextStateObject.backgroundColor
     });
   }
 
