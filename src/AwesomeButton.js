@@ -1,46 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 import {
-  ActivityIndicator,
   Animated,
-  View,
-  Text,
-  StyleSheet,
   TouchableOpacity
 } from 'react-native';
 
-
-const styles = StyleSheet.create({
-  insideView: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'center'
-  },
-  activityIndicator: {
-    marginRight: 8,
-  },
-  container: {
-    flex: 1,
-  }
-});
+import InnerButtonView from './InnerButtonView';
 
 
-const InnerButtonView = props => (
-  <View style={styles.insideView}>
-    { this.props.currentStateObject.spinner ? <ActivityIndicator color={props.spinnerColor} style={styles.activityIndicator} styleAttr="small" /> : null }
-    <Text style={this.props.labelStyle}>{props.currentStateObject.text}</Text>
-  </View>
-);
-
-
-export default class AwesomeButton extends Component {
+class AwesomeButton extends Component {
   static propTypes = {
-    states: PropTypes.object.isRequired,
+    states: PropTypes.shape.isRequired,
     buttonState: PropTypes.string.isRequired,
     transitionDuration: PropTypes.number,
     spinnerColor: PropTypes.string,
-    labelStyle: PropTypes.object,
-    backgroundStyle: PropTypes.object,
+    labelStyle: PropTypes.shape,
+    backgroundStyle: PropTypes.shape,
     activeOpacity: PropTypes.number,
   }
 
@@ -70,6 +44,12 @@ export default class AwesomeButton extends Component {
     this.startAnimation();
   }
 
+  getDefaultStateObject() {
+    return (
+      this.props.states[Object.keys(this.props.states)[0]]
+    );
+  }
+
   startAnimation() {
     Animated.timing(this.state.backgroundColor,
       {
@@ -77,19 +57,6 @@ export default class AwesomeButton extends Component {
         duration: this.props.transitionDuration
       }
     ).start();
-  }
-
-  getDefaultStateObject() {
-    return (
-      this.props.states[Object.keys(this.props.states)[0]]
-    );
-  }
-
-  hexToRgb(hex) {
-    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-    hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? 'rgb(' + parseInt(result[1], 16) + ', ' + parseInt(result[2], 16) + ', ' + parseInt(result[3], 16) + ')' : null;
   }
 
   render() {
@@ -145,3 +112,6 @@ AwesomeButton.defaultProps = {
   transitionDuration: 250,
   activeOpacity: 0.92
 };
+
+export default AwesomeButton;
+
