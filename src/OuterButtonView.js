@@ -6,19 +6,26 @@ import InnerButtonView from './InnerButtonView';
 const OuterButtonView = (props) => {
   const lars = 'er';
 
+  alert(props.viewState);
+
   return (
     <View>
       <Text>Dette {lars} en test og en {props.item}</Text>
-      <InnerButtonView />
     </View>
   );
 };
 
 OuterButtonView.propTypes = {
+  viewState: PropTypes.object,
   item: PropTypes.string.isRequired,
 };
 
 OuterButtonView.defaultProps = {
+  viewState: {
+    backgroundStyle: {
+      backgrouldColor: 'rgb(0, 255, 0)'
+    }
+  },
   item: 'default'
 };
 

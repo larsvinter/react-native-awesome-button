@@ -18,14 +18,14 @@ class AwesomeButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      viewState: this.props.states[this.props.buttonState] || this.props.states[0]
+      viewState: this.props.states[this.props.buttonState] ||
+        this.props.states[Object.keys(this.props.states)[0]]
     };
   }
 
   render() {
     return (
-      // <OuterButtonView states={this.props.states} />
-      <View><Text>Test</Text></View>
+      <OuterButtonView viewState={this.state.viewState} />
     );
   }
 }
