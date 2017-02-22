@@ -31,6 +31,7 @@ class AwesomeButton extends Component {
         backgroundStyle={backgroundStyle}
         labelStyle={labelStyle}
         text={text}
+        style={{ flex: 1 }}
       />
     );
   }
