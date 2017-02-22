@@ -83,8 +83,8 @@ AwesomeButton.defaultProps = {
   buttonState: 'default',
   backgroundStyle: {
     flex: 1,
-    height: 40,
-    backgroundColor: '#FF0000',
+    maxHeight: 40,
+    backgroundColor: 'rgb(255, 0, 0)',
     borderRadius: 20
   },
   labelStyle: {
