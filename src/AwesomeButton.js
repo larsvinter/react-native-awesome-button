@@ -47,7 +47,7 @@ class AwesomeButton extends Component {
   }
 
   render() {
-    const bgColor = this.state.backgroundColor.interpolate({
+    let bgColor = this.state.backgroundColor.interpolate({
       inputRange: [0, 1],
       outputRange: [this.state.startColor, this.state.endColor]
     });
