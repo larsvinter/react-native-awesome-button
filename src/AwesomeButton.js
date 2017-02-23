@@ -30,6 +30,7 @@ class AwesomeButton extends Component {
   }
 
   componentDidUpdate() {
+    this.state.backgroundColor.setValue(0);
     this.startAnimation();
   }
 
