@@ -40,7 +40,7 @@ export default class Advanced extends Component {
           states={{
             idle: {
               text: 'Log In',
-              icon: <Icon name="person" color="rgba(255, 0, 0, .9)" />,
+              icon: <Icon name="person" color="rgba(255, 255, 255, .9)" />,
               iconAlignment: 'left',
               backgroundStyle: {
                 backgroundColor: 'blue',
@@ -48,6 +48,11 @@ export default class Advanced extends Component {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 30
+              },
+              labelStyle: {
+                color: 'white',
+                alignSelf: 'center',
+                marginLeft: 10
               },
               onPress: this.handleLogin
             },
