@@ -1,21 +1,25 @@
 import React, { PropTypes } from 'react';
-import { ActivityIndicator, Animated, View, Text, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, Animated, View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 
 const ButtonView = (props) => {
+  const styles = StyleSheet.create({
+    labelStyle: props.labelStyle,
+    backgroundStyle: props.backgroundStyle
+  });
   return (
     <TouchableOpacity
       onPress={props.onPress}
       activeOpacity={0.8}
       disabled={props.disabled}
     >
-      <Animated.View style={props.backgroundStyle}>
+      <Animated.View style={styles.backgroundStyle}>
         <View style={{ flexDirection: 'row' }}>
           { props.spinner ?
             <ActivityIndicator {...props.spinnerProps} style={{ marginRight: 10 }} />
             : null
           }
-          <Text style={props.labelStyle}>{props.text}</Text>
+          <Text style={styles.labelStyle}>{props.text}</Text>
         </View>
       </Animated.View>
     </TouchableOpacity>

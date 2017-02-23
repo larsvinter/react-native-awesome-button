@@ -54,9 +54,8 @@ class AwesomeButton extends Component {
     return (
       <View>
         <ButtonView
-          backgroundStyle={backgroundStyle ?
-            StyleSheet.flatten([backgroundStyle, { backgroundColor }]) : null}
-          labelStyle={labelStyle ? StyleSheet.create(labelStyle) : null}
+          backgroundStyle={[backgroundStyle, { backgroundColor }]}
+          labelStyle={labelStyle}
           text={text}
           spinner={spinner}
           onPress={onPress}
