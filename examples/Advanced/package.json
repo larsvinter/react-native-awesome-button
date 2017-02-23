@@ -9,7 +9,7 @@
   "dependencies": {
     "react": "15.4.2",
     "react-native": "0.41.2",
-    "react-native-awesome-button": "^1.8.0",
+    "react-native-awesome-button": "^1.8.2",
     "react-native-material-design": "^0.3.7"
   },
   "devDependencies": {
