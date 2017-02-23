@@ -51,12 +51,12 @@ class AwesomeButton extends Component {
         [this.state.prevBackgroundColor, backgroundStyle.backgroundColor]
         : [backgroundStyle.backgroundColor, backgroundStyle.backgroundColor]
     });
-    console.log(backgroundColor);
     return (
       <View>
         <ButtonView
-          backgroundStyle={StyleSheet.flatten([backgroundStyle, { backgroundColor }])}
-          labelStyle={StyleSheet.create(labelStyle)}
+          backgroundStyle={backgroundStyle ?
+            StyleSheet.flatten([backgroundStyle, { backgroundColor }]) : null}
+          labelStyle={labelStyle ? StyleSheet.create(labelStyle) : null}
           text={text}
           spinner={spinner}
           onPress={onPress}
