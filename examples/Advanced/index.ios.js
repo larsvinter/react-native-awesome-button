@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   View,
-  StyleSheet,
-  Text
+  StyleSheet
 } from 'react-native';
 import AwesomeButton from 'react-native-awesome-button';
 
@@ -14,7 +13,7 @@ const styles = StyleSheet.create({
     margin: 30,
     marginTop: 560
   }
-})
+});
 
 export default class Advanced extends Component {
   constructor(props) {
@@ -28,7 +27,7 @@ export default class Advanced extends Component {
   handleLogin() {
     this.setState({ buttonState: 'busy' });
     setTimeout(() => {
-      this.setState({ buttonState: 'success' })
+      this.setState({ buttonState: 'success' });
     }, 2500);
   }
 
@@ -36,7 +35,7 @@ export default class Advanced extends Component {
     return (
       <View style={styles.container}>
         <AwesomeButton
-          states={{ 
+          states={{
             idle: {
               text: 'Log In',
               backgroundStyle: {
@@ -71,15 +70,14 @@ export default class Advanced extends Component {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 30
-              },
-              onPress: this.handleButtonPress
+              }
             }
           }}
           transitionDuration={400}
           buttonState={this.state.buttonState}
         />
       </View>
-    )
+    );
   }
 }
 

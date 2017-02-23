@@ -1,11 +1,8 @@
- 'use strict';
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
   View,
-  StyleSheet,
-  Text
+  StyleSheet
 } from 'react-native';
 import AwesomeButton from 'react-native-awesome-button';
 
@@ -16,19 +13,19 @@ const styles = StyleSheet.create({
     margin: 30,
     marginTop: 560
   }
-})
+});
 
 
 class Simple extends Component {
   handleButtonPress() {
-    console.log('I was pressed')
+    console.log('I was pressed');
   }
 
   render() {
     return (
       <View style={styles.container}>
         <AwesomeButton
-          states={{ 
+          states={{
             default: {
               backgroundStyle: {
                 backgroundColor: 'red',
@@ -42,8 +39,8 @@ class Simple extends Component {
           }}
         />
       </View>
-    )
+    );
   }
 }
 
-AppRegistry.registerComponent('Simple', () => Simple)
+AppRegistry.registerComponent('Simple', () => Simple);
