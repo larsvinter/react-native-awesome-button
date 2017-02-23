@@ -2,3 +2,5 @@
 .DS_Store
 
 node_modules/
+examples/Simple/node_modules/
+examples/Advanced/node_modules/

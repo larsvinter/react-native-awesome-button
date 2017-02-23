@@ -14,39 +14,36 @@ An `<AwesomeButton />` component that creates a button depicting different state
 
 ### Installation
 1. `npm install react-native-awesome-button --save`
-2. Whenever you want to use it within React Native code now you can: `const AwesomeButton = require('react-native-awesome-button')`
+2. Whenever you want to use it within React Native code you can: `import AwesomeButton from 'react-native-awesome-button'`
+3. Use `<AwesomeButton />` wherever you want :)
 
 
 
 ### Usage Example
 
 #### Simple Example
-To use `<AwesomeButton>`, you need to require `react-native-awesome-button` to your module and insert `<AwesomeButton>` tag inside render function with the required properties as it's done below:
+To use `<AwesomeButton>`, you need to import `react-native-awesome-button` and insert `<AwesomeButton>` comonent in the render function with the required properties. Just as it's done below:
 ```javascript
 import React, { Component } from 'react';
-
 import {
   AppRegistry,
   View,
-  StyleSheet
+  StyleSheet,
+  Text
 } from 'react-native';
-
 import AwesomeButton from 'react-native-awesome-button';
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    margin: 20,
-    alignItems: 'center',
-    justifyContent: 'center'
+    flexDirection: 'column',
+    margin: 30,
+    marginTop: 560
   }
 })
 
 
 class Simple extends Component {
-  
   handleButtonPress() {
     console.log('I was pressed')
   }
@@ -54,21 +51,27 @@ class Simple extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <AwesomeButton states={{
-                        default: {
-                          text: 'Press me',
-                          onPress: this.handleButtonPress,
-                          backgroundColor: '#1155DD'
-                        }
-                       }} />
+        <AwesomeButton
+          states={{ 
+            default: {
+              backgroundStyle: {
+                backgroundColor: 'red',
+                minHeight: 60,
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 30
+              },
+              onPress: this.handleButtonPress
+            }
+          }}
+        />
       </View>
     )
   }
-
 }
 
-
 AppRegistry.registerComponent('Simple', () => Simple)
+
 ```
 
 In this example, a simple button with only one appearance and onPress-function will be rendered. This would produce something like this:
@@ -80,7 +83,7 @@ To run this example yourself, you need to do the following:
 1. Clone the full source code from github: `git clone git@github.com:larsvinter/react-native-awesome-button.git`
 2. Change to the proper directory of the simple example: `cd react-native-awesome-button/examples/Simple`
 3. Install dependencies: `npm install`
-4. Open the project in Xcode and hit 'run' (the project is inside 'ios' folder) (remember to restart the packager)
+4. For ios: Open the project in Xcode and hit 'run' (the project is inside 'ios' folder) (remember to restart the packager)
 
 <BR>
 <BR>
@@ -90,85 +93,93 @@ To run this example yourself, you need to do the following:
 This shows how you might implement an animated button that transitions to a new state upon e.g. a user press. Notice that you create an object that specifies the different states and then pass the prop buttonState to the button, when you want it to transition to a new appearance. You can have an unlimited number of possible states for a button.
 
 ```javascript
-const React = require('react-native')
-const AwesomeButton = require('react-native-awesome-button')
-
-
-const {
+import React, { Component } from 'react';
+import {
   AppRegistry,
-  Component,
   View,
-  StyleSheet
-} = React
-
+  StyleSheet,
+  Text
+} from 'react-native';
+import AwesomeButton from 'react-native-awesome-button';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 20
-  },
-  loginButtonBackground: {
-    flex: 1,
-    height: 40,
-    borderRadius: 5
-  },
-  loginButtonLabel: {
-    color: 'white'
+    flexDirection: 'column',
+    margin: 30,
+    marginTop: 560
   }
 })
 
-
-class Advanced extends Component {
-
+export default class Advanced extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-        buttonState: 'idle'
-    }
-    this.logIn = this.logIn.bind(this)
+      buttonState: 'idle'
+    };
+    this.handleLogin = this.handleLogin.bind(this);
   }
 
-  logIn() {
-    this.setState({ buttonState: 'busy' })
+  handleLogin() {
+    this.setState({ buttonState: 'busy' });
     setTimeout(() => {
       this.setState({ buttonState: 'success' })
-    }, 2000);
+    }, 2500);
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <AwesomeButton  backgroundStyle={styles.loginButtonBackground}
-                        labelStyle={styles.loginButtonLabel}
-                        transitionDuration={200}
-                        states={{
-                          idle: {
-                            text: 'Log In',
-                            onPress: this.logIn,
-                            backgroundColor: '#1155DD',
-                          },
-                          busy: {
-                            text: 'Logging In',
-                            backgroundColor: '#002299',
-                            spinner: true,
-                          },
-                          success: {
-                            text: 'Logged In',
-                            backgroundColor: '#339944'
-                          }
-                        }}
-                        buttonState={this.state.buttonState}
-                        />
+        <AwesomeButton
+          states={{ 
+            idle: {
+              text: 'Log In',
+              backgroundStyle: {
+                backgroundColor: 'blue',
+                minHeight: 60,
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 30
+              },
+              onPress: this.handleLogin
+            },
+            busy: {
+              text: 'Loggin In',
+              spinner: true,
+              spinnerProps: {
+                animated: true,
+                color: 'white'
+              },
+              backgroundStyle: {
+                backgroundColor: 'darkblue',
+                minHeight: 60,
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 30
+              }
+            },
+            success: {
+              text: 'Logged In',
+              backgroundStyle: {
+                backgroundColor: 'green',
+                minHeight: 60,
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: 30
+              },
+              onPress: this.handleButtonPress
+            }
+          }}
+          transitionDuration={400}
+          buttonState={this.state.buttonState}
+        />
       </View>
     )
   }
 }
 
 
-AppRegistry.registerComponent('Advanced', () => Advanced)
+AppRegistry.registerComponent('Advanced', () => Advanced);
 ```
 
 In this example, a login-button with three different appearances will be rendered. This would produce something like this (in 3 steps):
@@ -189,23 +200,33 @@ To run this example yourself, you need to do the following:
 |---|---|---|
 |**`states`**|`object`|Includes a nested object for each possible state and the parameters for this state. The key used for the nested object will be the name for that specific state|
 |**`buttonState`**|`string`|The key used to tell the button what apparance and functionality to take on. Changing this will trigger an animation to the new state given|
-|**`backgroundStyle`**|`stylesheet object`|A standard style object for the button (with same style properties as for a `<View>` component. Possible to reference a StyleSheet object|
-|**`labelStyle`**|`stylesheet object`|A standard style object for the button label (with same style properties as for a `<Text>` component. Possible to reference a StyleSheet object|
+|**`transitionDuration`**|`number`|The duration of the transition in ms|
 
-#### Keys in the `states` objects
 
-Each state in the states object should have a unique key. For each of these keys you need to specify the parameters for the button when it is in that specific state. A buttonstate can have one or more of the following parameters:
+#### Definition of each key-value pair in the `states` objects
+
+Each state in the states object should have a unique key. For each of these keys you need to specify an object. This object will hold all parameters that are specific for the button when in the given state. Each of these objects can have one or more of these key-value pairs:
 
 | Key | Type | Description |
 |---|---|---|
 |**`onPress`**|`function`|The function fired when the button is pressed. If not defined the button has no press functionality and simply renders as a view|
 |**`spinner`**|`bool`|If true the button will show a spinner on the left hand side of the label when in this state|
 |**`text`**|`string`|The label of the button when in this state|
-|**`backgroundColor`**|`string`|A color for the background of the button when in this state|
+|**`backgroundStyle`**|`object`|An object with styling for the background view of the button in the given state|
+|**`labelStyle`**|`object`|An object with styling for the label text of the button in the given state|
+
+
+### Versions
+v 1.7.0  Major refactoring adding several improvements (and a few breaking changes):
+  - Background Style now accepts same styling properties as the component View
+  - Label Style now accepts same styling properties as the component Text
+  - Addressed several bugs raised
+  - Added eslinting (using airbnb preset)
 
 
 ### Roadmap
- - Improve transition animation (i.e. cross-fade the text label)
+ - Add tests
+ - Add animations on other props (e.g. labelStyle or width)
 
 
 ### Contributing
