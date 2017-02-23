@@ -10,7 +10,7 @@ const ButtonView = (props) => {
   return (
     <TouchableOpacity
       onPress={props.onPress}
-      activeOpacity={0.8}
+      activeOpacity={0.9}
       disabled={props.disabled}
     >
       <Animated.View style={styles.backgroundStyle}>
