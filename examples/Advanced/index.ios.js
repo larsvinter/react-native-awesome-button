@@ -5,6 +5,8 @@ import {
   StyleSheet
 } from 'react-native';
 import AwesomeButton from 'react-native-awesome-button';
+import { Icon } from 'react-native-material-design';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -38,6 +40,8 @@ export default class Advanced extends Component {
           states={{
             idle: {
               text: 'Log In',
+              icon: <Icon name="person" color="rgba(255, 0, 0, .9)" />,
+              iconAlignment: 'left',
               backgroundStyle: {
                 backgroundColor: 'blue',
                 minHeight: 60,

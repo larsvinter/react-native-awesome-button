@@ -15,11 +15,19 @@ const ButtonView = (props) => {
     >
       <Animated.View style={styles.backgroundStyle}>
         <View style={{ flexDirection: 'row' }}>
+          { (props.icon && props.iconAlignment === 'left') ?
+            props.icon
+            : null
+          }
           { props.spinner ?
             <ActivityIndicator {...props.spinnerProps} style={{ marginRight: 10 }} />
             : null
           }
           <Text style={styles.labelStyle}>{props.text}</Text>
+          { (props.icon && props.iconAlignment === 'right') ?
+            props.icon
+            : null
+          }
         </View>
       </Animated.View>
     </TouchableOpacity>
@@ -33,7 +41,9 @@ ButtonView.propTypes = {
   text: PropTypes.string,
   onPress: PropTypes.func,
   spinner: PropTypes.bool,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  icon: PropTypes.element,
+  iconAlignment: PropTypes.string
 };
 
 ButtonView.defaultProps = {
@@ -54,6 +64,8 @@ ButtonView.defaultProps = {
   text: 'Click here',
   spinner: false,
   disabled: true,
+  icon: null,
+  iconAlignment: null,
   onPress: (() => {}) // work-around to suppress eslinters no-default-prop
 };
 

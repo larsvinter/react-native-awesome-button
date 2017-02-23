@@ -28,8 +28,7 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   View,
-  StyleSheet,
-  Text
+  StyleSheet
 } from 'react-native';
 import AwesomeButton from 'react-native-awesome-button';
 
@@ -40,19 +39,19 @@ const styles = StyleSheet.create({
     margin: 30,
     marginTop: 560
   }
-})
+});
 
 
 class Simple extends Component {
   handleButtonPress() {
-    console.log('I was pressed')
+    console.log('I was pressed');
   }
 
   render() {
     return (
       <View style={styles.container}>
         <AwesomeButton
-          states={{ 
+          states={{
             default: {
               backgroundStyle: {
                 backgroundColor: 'red',
@@ -66,11 +65,11 @@ class Simple extends Component {
           }}
         />
       </View>
-    )
+    );
   }
 }
 
-AppRegistry.registerComponent('Simple', () => Simple)
+AppRegistry.registerComponent('Simple', () => Simple);
 
 ```
 
@@ -97,10 +96,11 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   View,
-  StyleSheet,
-  Text
+  StyleSheet
 } from 'react-native';
 import AwesomeButton from 'react-native-awesome-button';
+import { Icon } from 'react-native-material-design';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     margin: 30,
     marginTop: 560
   }
-})
+});
 
 export default class Advanced extends Component {
   constructor(props) {
@@ -123,7 +123,7 @@ export default class Advanced extends Component {
   handleLogin() {
     this.setState({ buttonState: 'busy' });
     setTimeout(() => {
-      this.setState({ buttonState: 'success' })
+      this.setState({ buttonState: 'success' });
     }, 2500);
   }
 
@@ -131,9 +131,11 @@ export default class Advanced extends Component {
     return (
       <View style={styles.container}>
         <AwesomeButton
-          states={{ 
+          states={{
             idle: {
               text: 'Log In',
+              icon: <Icon name="person" color="rgba(255, 0, 0, .9)" />,
+              iconAlignment: 'left',
               backgroundStyle: {
                 backgroundColor: 'blue',
                 minHeight: 60,
@@ -166,15 +168,14 @@ export default class Advanced extends Component {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 30
-              },
-              onPress: this.handleButtonPress
+              }
             }
           }}
           transitionDuration={400}
           buttonState={this.state.buttonState}
         />
       </View>
-    )
+    );
   }
 }
 
@@ -212,11 +213,17 @@ Each state in the states object should have a unique key. For each of these keys
 |**`onPress`**|`function`|The function fired when the button is pressed. If not defined the button has no press functionality and simply renders as a view|
 |**`spinner`**|`bool`|If true the button will show a spinner on the left hand side of the label when in this state|
 |**`text`**|`string`|The label of the button when in this state|
+|**`icon`**|`string`|The view (e.g. an icon) to render next to the text (any View will be accepted|
+|**`iconAlignment`**|`string`|Whether to put icon on the left hand or right hand side of text. Accepts 'left' or 'right'|
 |**`backgroundStyle`**|`object`|An object with styling for the background view of the button in the given state|
 |**`labelStyle`**|`object`|An object with styling for the label text of the button in the given state|
 
 
 ### Versions
+v 1.8.0
+  - Added feature to include an icon (any View will be accepted) to left or right hand side of text (see Advanced example)
+  - Fixed linting errors in examples
+
 v 1.7.0  Major refactoring adding several improvements (and a few breaking changes):
   - Background Style now accepts same styling properties as the component View
   - Label Style now accepts same styling properties as the component Text
@@ -227,6 +234,8 @@ v 1.7.0  Major refactoring adding several improvements (and a few breaking chang
 ### Roadmap
  - Add tests
  - Add animations on other props (e.g. labelStyle or width)
+ - Add smooth fade in/out of text at "center timing" of animation to sync effects
+ - Add Android examples
 
 
 ### Contributing
