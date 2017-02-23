@@ -27,7 +27,7 @@ const ButtonView = (props) => {
 };
 
 ButtonView.propTypes = {
-  backgroundStyle: PropTypes.object,
+  backgroundStyle: PropTypes.array,
   labelStyle: PropTypes.object,
   spinnerProps: PropTypes.object,
   text: PropTypes.string,
