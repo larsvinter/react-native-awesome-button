@@ -3,7 +3,7 @@ import { ActivityIndicator, Animated, View, StyleSheet, Text, TouchableOpacity }
 
 
 const ButtonView = (props) => {
-  const styles = StyleSheet.create({
+  const styles = StyleSheet.flatten({
     labelStyle: props.labelStyle,
     backgroundStyle: props.backgroundStyle
   });
