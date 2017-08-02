@@ -200,6 +200,7 @@ To run this example yourself, you need to do the following:
 
 <BR>
 <BR>
+
 ### Component properties
 
 | Prop | Type | Description |
